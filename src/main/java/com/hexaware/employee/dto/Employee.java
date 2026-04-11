@@ -1,13 +1,13 @@
 package com.hexaware.employee.dto;
 
 public class Employee {
-    private int id;
+    private Integer id;
     private String name;
-    public Employee(int id, String name) {
+    public Employee(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public String getName() {

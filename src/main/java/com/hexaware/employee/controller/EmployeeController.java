@@ -34,24 +34,24 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> addEmployee(@RequestBody Employee employee) {
         return new ResponseEntity<>(employeeService.addEmployee(employee), HttpStatus.CREATED);
     }
-    @GetMapping("/{index}")
-    public ResponseEntity<Employee> getEmployeeByIndex(@PathVariable int index) {
-        return new ResponseEntity<>(employeeService.getEmployeeByIndex(index), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> getEmployeeByIndex(@PathVariable Integer id) {
+        return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
     }
-    @PutMapping("/{index}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable int index, @RequestBody Employee employee) {
-        return new ResponseEntity<>(employeeService.updateEmployee(index, employee), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable int id, @RequestBody Employee employee) {
+        return new ResponseEntity<>(employeeService.updateEmployee(id, employee), HttpStatus.OK);
     }
-
-    @PatchMapping("/{index}")
-    public ResponseEntity<Employee> updateEmployeeByIndex(@PathVariable int index,@RequestParam String name) {
-        return new ResponseEntity<>(employeeService.updateEmployeeName(index, name), HttpStatus.OK);
-    }
-    @DeleteMapping("/{index}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable int index) {
-        employeeService.deleteEmployee(index);
-        return new ResponseEntity<>( HttpStatus.OK);
-    }
+//
+//    @PatchMapping("/{index}")
+//    public ResponseEntity<Employee> updateEmployeeByIndex(@PathVariable int index,@RequestParam String name) {
+//        return new ResponseEntity<>(employeeService.updateEmployeeName(index, name), HttpStatus.OK);
+//    }
+//    @DeleteMapping("/{index}")
+//    public ResponseEntity<Void> deleteEmployee(@PathVariable int index) {
+//        employeeService.deleteEmployee(index);
+//        return new ResponseEntity<>( HttpStatus.OK);
+//    }
 
 
 }
