@@ -5,17 +5,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
 public class EmployeeEntity {
-    @Id
+    @Id// Primary Key For Table(Unique And Not null)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name = "name")
+    private Integer id;// Integer=null int=0
+    @Column(name = "emp_name")
     private String name;
+    @Column(name="age")
+    private Integer age;
 
+    @OneToOne
+    private Department department;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     public int getId() {
         return id;

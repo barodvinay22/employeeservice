@@ -28,3 +28,4 @@ JPA is a JAVA specification for managing relational data in JAVA.
 
 * Hibernate
 
+mvn spring-boot:run

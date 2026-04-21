@@ -1,0 +1,74 @@
+openapi: 3.0.4
+info:
+  version: 1.0.0
+  title: Test API
+  description: This is for testing purpose
+servers:
+  - url: https://localhost
+tags:
+  - name: Student API
+    description: This is Student Demo controller
+
+paths:
+  /students:
+    get:
+      tags:
+        - Student API
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          description: Bad Request
+    post:
+      tags:
+        - Student API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+  /students/{id}:
+    get:
+      tags:
+        - Student API
+      operationId: getStudentById
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          description: Bad Request
+
+
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+        age:
+          type: integer
+
