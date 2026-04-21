@@ -13,8 +13,8 @@ public class HandlingException {
     public ResponseEntity<ErrorMessage> handleIndexOutOfBoundsException(IndexOutOfBoundsException e) {
         return new ResponseEntity<>(new ErrorMessage("Index out of bounds"), HttpStatus.NOT_FOUND);
     }
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<ErrorMessage> handleEntityNotFoundException(EntityNotFoundException e) {
-        return new ResponseEntity<>(new ErrorMessage(e.getMessage()), HttpStatus.NOT_FOUND);
-    }
+//    @ExceptionHandler(EntityNotFoundException.class)
+//    public ResponseEntity<ErrorMessage> handleEntityNotFoundException(EntityNotFoundException e) {
+//        return new ResponseEntity<>(new ErrorMessage(e.getMessage()), HttpStatus.NOT_FOUND);
+//    }
 }
